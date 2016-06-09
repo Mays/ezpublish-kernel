@@ -15,7 +15,7 @@ class PathStringRouteBasedLimitationParserTest extends BaseTest
             '_identifier' => 'Subtree',
             'values' => [
                 'ref' => [
-                    ['_href' => '/content/locations/1/2/3/4'],
+                    ['_href' => '/content/locations/1/2/3/4/'],
                 ],
             ],
         ];
@@ -25,7 +25,7 @@ class PathStringRouteBasedLimitationParserTest extends BaseTest
         self::assertInstanceOf('stdClass', $result);
         self::assertObjectHasAttribute('limitationValues', $result);
         self::assertArrayHasKey(0, $result->limitationValues);
-        self::assertEquals('/1/2/3/4', $result->limitationValues[0]);
+        self::assertEquals('/1/2/3/4/', $result->limitationValues[0]);
     }
 
     /**
@@ -40,7 +40,7 @@ class PathStringRouteBasedLimitationParserTest extends BaseTest
     public function getParseHrefExpectationsMap()
     {
         return array(
-            array('/content/locations/1/2/3/4', 'pathString', '1/2/3/4'),
+            array('/content/locations/1/2/3/4/', 'pathString', '1/2/3/4/'),
         );
     }
 }
